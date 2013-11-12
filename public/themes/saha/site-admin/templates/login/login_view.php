@@ -5,7 +5,7 @@
 <!-- BEGIN HEAD -->
 <head>
 	<meta charset="utf-8" />
-	<title>Sahamongkol Film Admin</title>
+	<title><?php echo NAME_PROJECT ?></title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
@@ -33,7 +33,7 @@
 <body class="login">
   <!-- BEGIN LOGO -->
   <div class="logo">
-    <img src="<?php echo $this->theme_path; ?>image/logo_saha.png" alt="สหมงคลฟิล์มอินเตอร์เนชั่นแนล - Sahamongkolfilm International Group" style="width: 14em;" /> 
+    <img src="<?php echo $this->theme_path; ?>image/lastfm256.png" alt="Project Management" style="width: 10em;" /> 
   </div>
   <!-- END LOGO -->
   <!-- BEGIN LOGIN -->

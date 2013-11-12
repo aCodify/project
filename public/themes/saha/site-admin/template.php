@@ -15,7 +15,7 @@
          <div class="container-fluid">
             <!-- BEGIN LOGO -->
             <a class="brand" href="<?php echo site_url('site-admin') ?>">
-            	<img style="width: 22px; padding-right: 8px;" src="<?php echo $this->theme_path; ?>image/logo_saha_thm.png" alt=""><span style="font-size: 13px;" >Sahamongkolfilm International Group</span>
+            	<img style="width: 22px; padding-right: 8px;" src="<?php echo $this->theme_path; ?>image/lastfm256.png" alt=""><span style="font-size: 13px;" >Project Management</span>
             </a>
             <!-- END LOGO -->
             <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -28,7 +28,7 @@
                <!-- BEGIN USER LOGIN DROPDOWN -->
                <li class="dropdown user">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img alt="" src="<?php echo $this->theme_path; ?>assets/img/avatar1_small.jpg" />
+                  <img alt="" src="http://www.gravatar.com/avatar/33a7889951d9dc27adbccfb7db58a144?s=26&d=mm" />
                   <span class="username">Admin</span>
                   <i class="icon-angle-down"></i>
                   </a>
@@ -160,6 +160,15 @@
                   <a href="<?php echo site_url('site-admin/setting') ?>">
                      <i class="icon-cogs"></i> 
                      <span class="title">Setting</span>
+                  </a>
+               </li>
+            <?php endif ?>
+
+            <?php if ( $this->modules_model->is_activated( 'project_list' ) ): ?>
+               <li class="<?php echo $hover = ( $hover_menu == 'Project List' ) ? 'active' : '' ; ?>">
+                  <a href="<?php echo site_url('site-admin/project_list') ?>">
+                     <i class="icon-cogs"></i> 
+                     <span class="title">Project List</span>
                   </a>
                </li>
             <?php endif ?>

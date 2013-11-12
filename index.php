@@ -19,6 +19,9 @@
  *
  */
 	define('ENVIRONMENT', 'development');
+
+	define('NAME_PROJECT', 'Project Management');
+	
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
