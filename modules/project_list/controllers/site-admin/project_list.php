@@ -27,6 +27,32 @@ class project_list extends admin_controller
 
 	public function project_add()
 	 {
+
+	 	if ( $this->input->post() ) 
+	 	{	
+	 		
+	 		$this->db->set( 'project_name', $this->input->post( 'project_name' ) );
+	 		$this->db->set( 'link_file', $this->input->post( 'link_file' ) );
+	 		$this->db->set( 'status', 1 );
+	 		$this->db->set( 'start_date', strtotime( date( 'Y/m/d' ) ) );
+	 		$this->db->set( 'end_date', strtotime( date( 'Y/m/d' ) ) );
+	 		$this->db->insert( 'project_list' );
+
+	 		$last_id = $this->db->insert_id();
+
+	 		$this->db->set( 'user_name', $this->input->post( 'user_name' ) );
+	 		$this->db->set( 'password', md5( $this->input->post( 'password' ) ) );
+	 		$this->db->set( 'project_id', $last_id );
+	 		$this->db->set( 'status', 1 );
+	 		$this->db->insert( 'member_project' );
+
+
+	 	}
+
+
+
+
+
 	 	$output['form_status'] = $this->session->flashdata( 'form_status' );
 		$output['data_list'] = $this->about_model->get_list();
 		$output['this_title_page'] = 'Project List';
@@ -36,7 +62,7 @@ class project_list extends admin_controller
 
 		$output['data_list'] = array();
 		$output['page_title'] = $this->html_model->gen_title( $this->lang->line( 'admin_home' ) );	
-		$this->generate_page( 'site-admin/admin_index' , $output );
+		$this->generate_page( 'site-admin/form_view' , $output );
 	 } 
 
 
