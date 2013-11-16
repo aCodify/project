@@ -11,7 +11,7 @@
 		<?php if ( isset( $page_meta ) ) {echo $page_meta;} ?> 
 		
 		<!-- FAVICON -->
-	    <link rel="shortcut icon" href="<?php echo base_url() ?>favicon.ico" type="image/x-icon" >
+	    <link rel="shortcut icon" href="http://www.abstractcodify.com/favicon.ico" type="image/x-icon" >
 
         <!--[if lt IE 9]>
             <script src="<?php echo $this->theme_path; ?>share-js/html5.js"></script>

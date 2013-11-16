@@ -5,12 +5,42 @@
 * Block comment
 *
 **/
+function call_strtotime()
+{
+	return strtotime( date( 'Y-m-d' ) );
+}
+
+
+/**
+*
+* Block comment
+*
+**/
+function conversion_time( $info = '' ) 
+{
+	if ( empty( $info )  ) 
+	{
+		return '';
+	}
+
+	$date = date( 'Y-m-d' , $info );
+	return getDateFull( $date );
+}
+
+
+/**
+*
+* Block comment
+*
+**/
 function set_time_to_strtotime( $time , $tag = '/' )
 {
 	if ( empty( $time ) ) 
 	{
-		echo "this time is empty";
-		die();
+		// echo "this time is empty";
+		// die();
+
+		return date( 'Y-m-d' );
 	}
 
 	$array_time = explode( $tag , $time );

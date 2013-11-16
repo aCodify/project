@@ -23,8 +23,9 @@
 					<table class="table table-striped table-hover table-bordered" id="">
 						<thead>
 							<tr>
-								<th>Year</th>
-								<th>Title Name</th>
+								<th>Project Name</th>
+								<th>Start Date</th>
+								<th>End Date</th>
 								<th>Edit</th>
 								<th>Delete</th>
 							</tr>
@@ -34,10 +35,10 @@
 								
 								<tr class="">
 									<td>
-										<?php echo $info->year ?>
-										<input type="hidden" name="<?php echo $info->id ?>" value="1234">
+										<?php echo $info->project_name ?>
 									</td>
-									<td><?php echo $info->title ?></td>
+									<td><?php echo conversion_time($info->start_date) ?></td>
+									<td><?php echo conversion_time($info->end_date) ?></td>
 									<td><a class="" href="<?php echo site_url( 'site-admin/project_list/project_list_edit/'.$info->id ) ?>">Edit</a></td>
 									<td><a data-url="<?php echo site_url('site-admin/project_list/project_list_delete/'.$info->id) ?>" class="delete_data" href="javascript:;">Delete</a></td>
 								</tr>
