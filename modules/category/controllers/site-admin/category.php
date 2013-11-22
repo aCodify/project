@@ -1,30 +1,30 @@
 <?php
 
-class project_list extends admin_controller 
+class category extends admin_controller 
 {
 
 	
 	function __construct() 
 	{
 		parent::__construct();
-		$this->load->model('project_list/project_list_model');
+		$this->load->model('category/category_model');
 	}
 	 
 
 	public function index( )
 	{
 
-		$output['data_list'] = $this->project_list_model->get_list();		
+		$output['data_list'] = $this->category_model->get_list();		
 		$output['form_status'] = $this->session->flashdata( 'form_status' );
-		$output['this_title_page'] = 'Project List';
-		$breadcrumb = array( 'Home' => site_url('site-admin') , 'Project List' => '#' );
+		$output['this_title_page'] = 'Category';
+		$breadcrumb = array( 'Home' => site_url('site-admin') , 'Category' => '#' );
 		$output['this_breadcrumb_page'] = $breadcrumb;
-		$output['hover_menu'] = 'Project List';	
+		$output['hover_menu'] = 'Category';
 		$output['page_title'] = $this->html_model->gen_title( $this->lang->line( 'admin_home' ) );	
 		$this->generate_page( 'site-admin/admin_index' , $output );
 	} 
 
-	public function project_add()
+	public function category_add()
 	 {
 
 	 	if ( $this->input->post() ) 
@@ -47,10 +47,10 @@ class project_list extends admin_controller
 	 		else
 	 		{
 	 			$data_array = $this->input->post();
-	 			$this->project_list_model->add( $data_array );
+	 			$this->category_model->add( $data_array );
 	 			
 	 			$this->session->set_flashdata( 'form_status', preview_success() );
-				redirect( 'site-admin/project_list' );
+				redirect( 'site-admin/category' );
 	 		}
 
 
@@ -59,26 +59,26 @@ class project_list extends admin_controller
 
 
 	 	$output['form_status'] = $this->session->flashdata( 'form_status' );
-		$output['this_title_page'] = 'Project List';
-		$breadcrumb = array( 'Home' => site_url('site-admin') , 'Project List' => site_url( 'site-admin/project_list' ) , 'Project Add ' => '#' );
+		$output['this_title_page'] = 'Category';
+		$breadcrumb = array( 'Home' => site_url('site-admin') , 'Category' => site_url( 'site-admin/category' ) , 'Category Add ' => '#' );
 		$output['this_breadcrumb_page'] = $breadcrumb;
-		$output['hover_menu'] = 'Project List';	
+		$output['hover_menu'] = 'Category';	
 
 		$output['data_list'] = array();
 		$output['page_title'] = $this->html_model->gen_title( $this->lang->line( 'admin_home' ) );	
 		$this->generate_page( 'site-admin/form_view' , $output );
 	} 
 
-	public function project_list_edit( $id = '' )
+	public function category_edit( $id = '' )
 	{
-		$output['show_data'] = $this->project_list_model->get_date( $id );
+		$output['show_data'] = $this->category_model->get_date( $id );
 
 
 	 	$output['form_status'] = $this->session->flashdata( 'form_status' );
-		$output['this_title_page'] = 'Project List';
-		$breadcrumb = array( 'Home' => site_url('site-admin') , 'Project List' => site_url( 'site-admin/project_list' ) , 'Project List' => '#' );
+		$output['this_title_page'] = 'Category';
+		$breadcrumb = array( 'Home' => site_url('site-admin') , 'Category' => site_url( 'site-admin/category' ) , 'Category edit' => '#' );
 		$output['this_breadcrumb_page'] = $breadcrumb;
-		$output['hover_menu'] = 'Project List';	
+		$output['hover_menu'] = 'Category';	
 
 		$output['data_list'] = array();
 		$output['page_title'] = $this->html_model->gen_title( $this->lang->line( 'admin_home' ) );	
@@ -86,13 +86,8 @@ class project_list extends admin_controller
 	}
 
 
-	public function project_list_delete( $id = '' )
+	public function category_delete( $id = '' )
 	{
-		$this->db->where( 'id', $id );
-		$this->db->delete( 'project_list' );
-
-		$this->db->where( 'project_id', $id );
-		$this->db->delete( 'member_project' );
 		echo "1";
 	}
 

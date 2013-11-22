@@ -1,0 +1,52 @@
+<?php
+/**
+*
+* Jiryau@bizidea.co.th
+* vision 0.2
+* Date 26-09-56
+*
+**/
+
+class category_install extends admin_controller {
+	
+	
+	public $module_system_name = 'category';
+
+	
+	function __construct() {
+		parent::__construct();
+	}
+	
+	
+	function index() {
+		$this->db->where( 'module_system_name', $this->module_system_name );
+		$query = $this->db->get( 'modules' );
+		if ( $query->num_rows() <= 0 ) {
+			$query->free_result();
+			echo 'Installed.';
+			return null;
+		}
+		// install module.
+		if ( !$this->db->table_exists( 'category' ) ) {
+			$sql = 'CREATE TABLE `'.$this->db->dbprefix('category').'` (
+				`id` int(11) NOT NULL AUTO_INCREMENT,
+				`category_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+				`category_title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+				`category_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+				`sub_id` int(11) NOT NULL,
+				`modify` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT "จะ update auto เมื่อข้อมูลมีการแก้ไข",
+				`mark_sort` int(11) NOT NULL,
+				PRIMARY KEY (`id`)
+				) ENGINE = InnoDB;';
+			$this->db->query( $sql );
+		}
+		$this->db->set( 'module_install', '1' );
+		$this->db->where( 'module_system_name', $this->module_system_name );
+		$this->db->update( 'modules' );
+		// go back
+		redirect( 'site-admin/module' );
+	}
+
+	
+}
+
