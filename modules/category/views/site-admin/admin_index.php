@@ -8,14 +8,14 @@
 			<!-- BEGIN EXAMPLE TABLE PORTLET-->
 			<div class="portlet box blue">
 				<div class="portlet-title">
-					<h4><i class="icon-edit"></i>Project list Data Table</h4>
+					<h4><i class="icon-edit"></i>Category Data Table</h4>
 
 				</div>
 
 				<div class="portlet-body">
 					<div class="clearfix">
 						<div class="btn-group">
-							<a class="btn green" href="<?php echo site_url('site-admin/project_list/project_add') ?>"> 
+							<a class="btn green" href="<?php echo site_url('site-admin/category/category_add') ?>"> 
 								Add New <i class="icon-plus"></i>
 							</a> 
 						</div>
@@ -23,9 +23,8 @@
 					<table class="table table-striped table-hover table-bordered" id="">
 						<thead>
 							<tr>
-								<th>Project Name</th>
-								<th>Start Date</th>
-								<th>End Date</th>
+								<th>Name</th>
+								<th>Sort</th>
 								<th>Edit</th>
 								<th>Delete</th>
 							</tr>
@@ -35,12 +34,11 @@
 								
 								<tr class="">
 									<td>
-										<?php echo $info->project_name ?>
+										<?php echo $info->category_name ?>
 									</td>
-									<td><?php echo conversion_time($info->start_date) ?></td>
-									<td><?php echo conversion_time($info->end_date) ?></td>
-									<td><a class="" href="<?php echo site_url( 'site-admin/project_list/project_list_edit/'.$info->id ) ?>">Edit</a></td>
-									<td><a data-url="<?php echo site_url('site-admin/project_list/project_list_delete/'.$info->id) ?>" class="delete_data" href="javascript:;">Delete</a></td>
+									<td></td>
+									<td><a class="" href="<?php echo site_url( 'site-admin/category/category_edit/'.$info->id ) ?>">Edit</a></td>
+									<td><a data-url="<?php echo site_url('site-admin/category/category_delete/'.$info->id) ?>" class="delete_data" href="javascript:;">Delete</a></td>
 								</tr>
 								
 							<?php endforeach ?>

@@ -30,12 +30,17 @@ class category_install extends admin_controller {
 		if ( !$this->db->table_exists( 'category' ) ) {
 			$sql = 'CREATE TABLE `'.$this->db->dbprefix('category').'` (
 				`id` int(11) NOT NULL AUTO_INCREMENT,
+				`sub_id` int(11) NOT NULL,
 				`category_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
 				`category_title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+				`category_detail` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
 				`category_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-				`sub_id` int(11) NOT NULL,
 				`modify` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT "จะ update auto เมื่อข้อมูลมีการแก้ไข",
 				`mark_sort` int(11) NOT NULL,
+				`tag_keywords` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+				`tag_description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+				`slug_encode` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,				
+				`status` int(1) NOT NULL,
 				PRIMARY KEY (`id`)
 				) ENGINE = InnoDB;';
 			$this->db->query( $sql );

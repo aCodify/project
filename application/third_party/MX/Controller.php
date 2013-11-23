@@ -43,6 +43,25 @@ class MX_Controller
 	public function __construct() 
 	{
 		$class = str_replace(CI::$APP->config->item('controller_suffix'), '', get_class($this));
+		
+		if ( $class != 'index' ) 
+		{
+
+			$this->db->where( 'module_system_name', $class );
+			$query = $this->db->get( 'modules' );
+			$data = $query->row();
+
+			if ( ! empty( $data ) ) 
+			{
+				if ( $data->module_enable == 0 ) 
+				{
+					echo 'system is close';
+					die();
+				}
+			}
+
+		}
+
 		log_message('debug', $class." MX_Controller Initialized");
 		Modules::$registry[strtolower($class)] = $this;	
 		
@@ -54,7 +73,8 @@ class MX_Controller
 		$this->load->_autoloader($this->autoload);
 	}
 	
-	public function __get($class) {
+	public function __get($class) 
+	{
 		return CI::$APP->$class;
 	}
 }

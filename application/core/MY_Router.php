@@ -43,11 +43,11 @@ class MY_Router extends MX_Router {
 				//* @todo may move module checking outside of here 
 				if ( ! defined('ENVIRONMENT') OR ! file_exists($file_path = APPPATH.'config/'.ENVIRONMENT.'/database.php'))
 				{
-					require_once( APPPATH.'config/database.php' );
+					require( APPPATH.'config/database.php' );
 				}
 				else
 				{
-					require_once( APPPATH.'config/'.ENVIRONMENT.'/database.php' );
+					require( APPPATH.'config/'.ENVIRONMENT.'/database.php' );
 				}
 
 				if ( !isset( $db ) ) {

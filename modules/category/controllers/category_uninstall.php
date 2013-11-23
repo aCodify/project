@@ -5,7 +5,7 @@
 *
 **/
 
-class project_list_uninstall extends admin_controller {
+class category_uninstall extends admin_controller {
 	
 	
 	public $module_system_name = 'category';

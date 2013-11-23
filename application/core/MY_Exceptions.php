@@ -190,9 +190,9 @@ class MY_Exceptions extends CI_Exceptions
 			}
 			// Start an output buffer
 			ob_start();
-
 			// This will include the custom error file.
 			require APPPATH . 'errors/error_php_custom.php';
+
 
 			// Display the contents of the output buffer
 			echo ob_get_clean();
@@ -460,6 +460,7 @@ class MY_Exceptions extends CI_Exceptions
 	 */
 	function show_error($heading, $message, $template = 'error_general', $status_code = 500)
 	{
+
 		// If we are in production, then lets dump out now.
 		if (IN_PRODUCTION)
 		{
@@ -509,8 +510,8 @@ class MY_Exceptions extends CI_Exceptions
 			}
 		}
 		unset($trace);
-
 		self::exception_handler(new ErrorException($message, E_ERROR, 0, $file, $line));
+
 		return;
 	}
 	

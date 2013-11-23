@@ -95,6 +95,8 @@ class index extends MY_Controller {
 
 		// $this->load->view('404/index');
 	}// index
+
+	
 	
 	
 }

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
-class category_module extends CI_Model 
+class category_model extends CI_Model 
 {
 
     function __construct() {
@@ -12,10 +12,10 @@ class category_module extends CI_Model
     {
     	if ( $use != 'admin' ) 
     	{
-    		$this->db->where( 'pl.status', 1 );
+    		$this->db->where( 'c.status', 1 );
     	}
-    	$this->db->from( 'project_list AS pl' );
-    	$this->db->join( 'member_project AS mp', 'pl.id = mp.project_id', 'left' );
+    	$this->db->from( 'category AS c' );
+    	$this->db->where( 'c.sub_id', '' );
     	$query = $this->db->get();
     	$data = $query->result();
     	return $data;

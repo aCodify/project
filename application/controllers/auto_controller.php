@@ -95,7 +95,14 @@ class auto_controller extends MY_Controller {
 		// end check redirection in url_alias.-----------------------------------------------------------------------------------------------
 		
 		// found nothing.
-		show_404();
+		// show_404();
+
+		// echo getcwd();
+
+		// die()
+
+		$this->load->module('theme_404')->index();
+
 	}// index
 	
 	
