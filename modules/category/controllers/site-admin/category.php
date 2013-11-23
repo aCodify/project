@@ -13,7 +13,6 @@ class category extends admin_controller
 
 	public function index( )
 	{
-
 		$output['data_list'] = $this->category_model->get_list();		
 		$output['form_status'] = $this->session->flashdata( 'form_status' );
 		$output['this_title_page'] = 'Category';

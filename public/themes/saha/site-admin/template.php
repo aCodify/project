@@ -173,6 +173,15 @@
                </li>
             <?php endif ?>
 
+            <?php if ( $this->modules_model->is_activated( 'category' ) ): ?>
+               <li class="<?php echo $hover = ( $hover_menu == 'Category' ) ? 'active' : '' ; ?>">
+                  <a href="<?php echo site_url('site-admin/category') ?>">
+                     <i class="icon-cogs"></i> 
+                     <span class="title">Category</span>
+                  </a>
+               </li>
+            <?php endif ?>
+
             <!-- SET ECHO MENU MODULE -->
             <?php //echo $this->modules_model->load_admin_nav(); ?> 
          </ul>

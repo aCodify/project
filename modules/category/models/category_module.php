@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
-class project_list_model extends CI_Model 
+class category_module extends CI_Model 
 {
 
     function __construct() {
