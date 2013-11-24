@@ -26,10 +26,14 @@ class category extends admin_controller
 	public function category_add()
 	 {
 
+
+	 	$output['category_name_list'] = $this->category_model->get_list();
+
 	 	if ( $this->input->post() ) 
 	 	{		
 
-	 		$array_validation = array( 'project_name' =>'Name project' , 'user_name' => 'User name' , 'password' => 'Password');
+
+	 		$array_validation = array( 'category_name' =>'Category Name' );
 
 	 		foreach ( $array_validation as $key => $value ) 
 	 		{
@@ -90,6 +94,28 @@ class category extends admin_controller
 		echo "1";
 	}
 
+	/**
+	*
+	* FUNCTION MARK SORT
+	*
+	**/
+	public function mark_sort()
+	{
+		if ( $this->input->post() ) 
+		{
+			$array_id = $this->input->post('id');
+			foreach ( $array_id as $key => $value ) 
+			{
+				$this->db->where( 'id', $value );
+				$this->db->set( 'mark_sort', $key );
+				$this->db->update( 'category' );
+
+			}
+
+			$this->session->set_flashdata( 'form_status', preview_success() );
+		}
+		redirect( 'site-admin/category' );
+	}
 
 
 

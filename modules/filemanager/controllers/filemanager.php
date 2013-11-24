@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Filemanager extends Admin_Controller {
+class filemanager extends admin_controller {
 	
 	public $object_per_zone = 500;
 	
@@ -12,8 +12,6 @@ class Filemanager extends Admin_Controller {
 	public function image($module = NULL, $id = NULL)
 	{
 		$this->_layout = FALSE;
-		
-		
 		
 		$connector_url = site_url('filemanager/connector');
 		

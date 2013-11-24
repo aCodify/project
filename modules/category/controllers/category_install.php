@@ -37,6 +37,7 @@ class category_install extends admin_controller {
 				`category_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
 				`modify` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT "จะ update auto เมื่อข้อมูลมีการแก้ไข",
 				`mark_sort` int(11) NOT NULL,
+				`slug` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
 				`tag_keywords` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
 				`tag_description` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
 				`slug_encode` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,				

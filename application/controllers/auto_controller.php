@@ -27,7 +27,7 @@ class auto_controller extends MY_Controller {
 	
 	function index() {
 		$att1 = $this->uri->segment(1);
-		
+	
 		// set att2 and prevent some of att2 match att1.
 		$uri_arr = $this->uri->segment_array();
 		$att2 = array();
@@ -99,7 +99,7 @@ class auto_controller extends MY_Controller {
 
 		// echo getcwd();
 
-		// die()
+		// die();
 
 		$this->load->module('theme_404')->index();
 
