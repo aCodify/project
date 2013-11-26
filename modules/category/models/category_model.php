@@ -62,13 +62,12 @@ class category_model extends CI_Model
 
     public function get_date( $id = '' , $use = 'admin' )
     {
-    	$this->db->from( 'project_list AS pl' );
+    	$this->db->from( 'category AS a' );
     	if ( $use != 'admin' ) 
     	{
-    		$this->db->where( 'pl.status', 1 );
+    		$this->db->where( 'a.status', 1 );
     	}
-    	$this->db->join( 'member_project AS mp', 'pl.id = mp.project_id', 'left' );
-    	$this->db->where( 'pl.id', $id );
+    	$this->db->where( 'a.id', $id );
     	$query = $this->db->get();
 		$data = $query->row_array();    	
     	return $data;

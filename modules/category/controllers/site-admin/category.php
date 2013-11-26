@@ -76,6 +76,9 @@ class category extends admin_controller
 	{
 		$output['show_data'] = $this->category_model->get_date( $id );
 
+		$output['category_name_list'] = $this->category_model->get_list();
+
+
 
 	 	$output['form_status'] = $this->session->flashdata( 'form_status' );
 		$output['this_title_page'] = 'Category';
